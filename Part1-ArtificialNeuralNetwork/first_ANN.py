@@ -8,7 +8,11 @@ Created on Wed Jul  1 19:54:02 2020
 Artificial Neural Network
 """
 
+#modules used: os, sys, numpy, pandas, tensorflow2, sklearn
+
 """~~~~Importing the Libraries~~~~"""
+import os
+import sys
 import numpy as np
 np.set_printoptions(suppress=True)#prevents from printing in scientific notation
 #import matplotlib.pyplot as plt
@@ -16,9 +20,10 @@ import pandas as pd
 import tensorflow as tf
 print ("\nTensorflow version:",tf.__version__,"\n")
 
+datasetPath = os.path.join(sys.path[0], 'Churn_Modelling.csv')# get the full path of the file that is in the same directory as the script
 
 """~~~~Importing the Dataset~~~~"""
-dataset = pd.read_csv('Churn_Modelling.csv') #read the file from current directory
+dataset = pd.read_csv(datasetPath) #get the csv file
 X_Input_data = dataset.iloc[:, 3:-1] #decide which columns (attributes) will be used in the calculations of the ANN
 #the values from column index 3 to the one before last
 Y_Real_value = dataset.iloc[:, -1] #decide the dependent variable(s) we are trying to guess. 
