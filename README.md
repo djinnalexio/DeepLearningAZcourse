@@ -1,3 +1,3 @@
-# ANN-part1DeepLaerningCourse
-The Artificial Neural Network excercise from the Udemu course "Deep Learning A-Z™: Hands-On Artificial Neural Networks ".
+# ANN-part1DeepLearningCourse
+The Artificial Neural Network exercise from the Udemy course "Deep Learning A-Z™: Hands-On Artificial Neural Networks ".
 https://www.udemy.com/course/deeplearning/
