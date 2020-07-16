@@ -145,6 +145,7 @@ y_pred = (y_pred > 0.5) #get true/false readings instead of probabilities
 
 y_test = np.array(y_test) #convert answer sample to array
 y_test = (y_test.reshape(len(y_test),1)) > 0.5 #convert answer sample to 2D array with true/false format
+#.reshape('rows','columns')
 
 test_results = np.concatenate((y_pred,y_test), axis=1) #concatenate predictions and real results in a 2D array
 # array([[pred, real],...])
