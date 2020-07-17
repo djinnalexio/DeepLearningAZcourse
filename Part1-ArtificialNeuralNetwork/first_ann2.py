@@ -9,9 +9,9 @@ import tensorflow as tf
 import pandas as pd
 
 
-filePath = os.path.join(sys.path[0],'Churn_Modelling.csv')
-try:    dataset = pd.read_csv(filePath)
-except FileNotFoundError: pd.read_csv('Churn_Modelling.csv')
+fileName = 'Churn_Modelling.csv'
+try:    dataset = pd.read_csv(os.path.join(sys.path[0],fileName))
+except FileNotFoundError:    dataset = pd.read_csv(fileName)
 
 X = dataset.iloc[:,3:-1]
 Y = dataset.iloc[:,-1]
@@ -23,7 +23,6 @@ from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
 ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [1])], remainder='passthrough')
 X = np.array(ct.fit_transform(X))
-print(X)
 
 from sklearn.model_selection import train_test_split
 X_train,X_test,y_train,y_test = train_test_split(X,Y,test_size=0.2,random_state = 0)

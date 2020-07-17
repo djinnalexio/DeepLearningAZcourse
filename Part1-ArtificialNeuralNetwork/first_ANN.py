@@ -20,14 +20,14 @@ import pandas as pd
 import tensorflow as tf
 print ("\nTensorflow version:",tf.__version__,"\n")
 
-datasetPath = os.path.join(sys.path[0], 'Churn_Modelling.csv')# get the full path of the file that is in the same directory as the script
-
 """~~~~Importing the Dataset~~~~"""
-try:    dataset = pd.read_csv(datasetPath) #get the csv file
-except FileNotFoundError:   pd.read_csv('Churn_Modelling.csv')
-X_Input_data = dataset.iloc[:, 3:-1] #decide which columns (attributes) will be used in the calculations of the ANN
+fileName = 'Churn_Modelling.csv'
+try:    dataset = pd.read_csv(os.path.join(sys.path[0],fileName))# use the full path of the file that is in the same directory as the script
+except FileNotFoundError:    dataset = pd.read_csv(fileName)# if fail, only use the name of the file
+
+X_Input_data = dataset.iloc[:, 3:-1].values #decide which columns (attributes) will be used in the calculations of the ANN
 #the values from column index 3 to the one before last
-Y_Real_value = dataset.iloc[:, -1] #decide the dependent variable(s) we are trying to guess. 
+Y_Real_value = dataset.iloc[:, -1].values #decide the dependent variable(s) we are trying to guess. 
 # Here, the results are simply the last column.
 
 print (X_Input_data)
@@ -39,9 +39,11 @@ print (Y_Real_value)
 """Encoding genders"""
 from sklearn.preprocessing import LabelEncoder
 le = LabelEncoder()
-X_Input_data['Gender'] = le.fit_transform(X_Input_data['Gender'])
+X_Input_data[:,2] = le.fit_transform(X_Input_data[:,2])
 #take all the values in 'Gender' and replace them by an encoded form
 #here 'female' and 'male' become 0 and 1
+print (X_Input_data)
+
 
 """Encoding countries (One Hot Encoding)"""
 from sklearn.compose import ColumnTransformer
@@ -63,7 +65,7 @@ from sklearn.preprocessing import StandardScaler
 sc = StandardScaler()
 X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
-
+print(X_train)
 
 
 """
