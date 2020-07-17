@@ -10,7 +10,9 @@ import pandas as pd
 
 
 filePath = os.path.join(sys.path[0],'Churn_Modelling.csv')
-dataset = pd.read_csv(filePath)
+try:    dataset = pd.read_csv(filePath)
+except FileNotFoundError: pd.read_csv('Churn_Modelling.csv')
+
 X = dataset.iloc[:,3:-1]
 Y = dataset.iloc[:,-1]
 
@@ -33,8 +35,6 @@ X_test = sc().fit_transform(X_test)
 
 ANN = tf.keras.models.Sequential()
 
-ANN.add(tf.keras.layers.Dense(units=6, activation='relu'))
-ANN.add(tf.keras.layers.Dense(units=6, activation='relu'))
 ANN.add(tf.keras.layers.Dense(units=6, activation='relu'))
 ANN.add(tf.keras.layers.Dense(units=6, activation='relu'))
 ANN.add(tf.keras.layers.Dense(units=6, activation='relu'))
