@@ -41,13 +41,15 @@ ANN.add(tf.keras.layers.Dense(units=1, activation='sigmoid'))
 
 ANN.compile(optimizer='adam', loss='binary_crossentropy',metrics=['accuracy'])
 
-ANN.fit(X_train, y_train, batch_size=64, epochs= 10)
+ANN.fit(X_train, y_train, batch_size=64, epochs= 100)
 
 y_pred = ANN.predict(X_test)
 y_pred = (y_pred > 0.5)
 
 y_test = np.array(y_test)
 y_test = (y_test.reshape(len(y_test),1)) > 0.5
+
+print(np.concatenate((y_test,y_pred),axis=1))
 
 from sklearn.metrics import confusion_matrix, accuracy_score
 print (confusion_matrix(y_test, y_pred))

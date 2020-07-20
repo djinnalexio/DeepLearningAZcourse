@@ -48,9 +48,10 @@ y = le.fit_transform(y)
 #y_train = dependent variables of the training set    #y_test = dependent variables of the test set
 
 from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state = 1)
-#20% of observations will be dedicated to the test set
-#we will have the same training set and test set
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state = 1)#20% of observations will be dedicated to the test set
+#setting a 'random_state' value guarantees that we will always get the same rearrangement of the results each time we run the code
+#each value corresponds to a rearrangement
+#setting a 'random_state' will give a new arangement each time the line is run
 
 
 """Feature Scaling"""
