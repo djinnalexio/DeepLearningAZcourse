@@ -49,7 +49,7 @@ y_pred = (y_pred > 0.5)
 y_test = np.array(y_test)
 y_test = (y_test.reshape(len(y_test),1)) > 0.5
 
-print(np.concatenate((y_test,y_pred),axis=1))
+print(np.concatenate((y_test,y_pred),axis=1),"\n")
 
 from sklearn.metrics import confusion_matrix, accuracy_score
 print (confusion_matrix(y_test, y_pred))
