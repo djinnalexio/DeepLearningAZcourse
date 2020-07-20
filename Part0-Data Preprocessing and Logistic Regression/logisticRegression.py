@@ -9,7 +9,7 @@ Created on Sun Jul 19 11:12:47 2020
 import os, sys
 import numpy as np
 np.set_printoptions(suppress=True,precision=2)
-import matplotlib as plt
+import matplotlib.pyplot as plt
 import pandas as pd
 
 filePath = 'Social_Network_Ads.csv'
