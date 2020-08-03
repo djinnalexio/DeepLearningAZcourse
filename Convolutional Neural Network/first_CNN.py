@@ -108,7 +108,7 @@ CNN.fit(x = training_set, validation_data= test_set, epochs= 30)
 """~~~Making a single prediction~~~"""
 
 "Importing the image" #use try/except again to handle filenotfounderror
-filePath = 'dataset/single_prediction/cat_or_dog_1.jpg'
+filePath = 'dataset/single_prediction/cat_or_dog_2.jpg'
 try: test_image = image.load_img(
     filePath, #the variable of the test image
     target_size = (64,64)) #dimensions of the test image
