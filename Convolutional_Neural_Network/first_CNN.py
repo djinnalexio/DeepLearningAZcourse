@@ -11,8 +11,9 @@ Convolutional Neural Network
 import sys, os
 import numpy as np
 import tensorflow as tf
-from keras.preprocessing import image
-
+from tensorflow.keras.preprocessing import image
+#was not able to download the keras module on Arch
+#So, use the library under tensorflow
 print ("Tensorflow version: %s" % tf.__version__)
 
 
