@@ -50,8 +50,12 @@ def Preprocessing(filePathPrefix=''):
     
     return training_set, test_set
 
-try: training_set, test_set = Preprocessing()
-except FileNotFoundError: training_set, test_set = Preprocessing(filePathPrefix = sys.path[0] + '/') #adding '/' instead of using 'os.path.join'
+try: 
+    training_set, test_set = Preprocessing()
+    print ("file obtained from path from filename")
+except FileNotFoundError:
+    training_set, test_set = Preprocessing(filePathPrefix = sys.path[0] + '/') #adding '/' instead of using 'os.path.join'
+    print ("file obtained from absolute path")
 
 
 """~~~Building the CNN~~~"""

@@ -22,8 +22,13 @@ print ("\nTensorflow version:",tf.__version__,"\n")
 
 """~~~~Importing the Dataset~~~~"""
 fileName = 'Churn_Modelling.csv'
-try:    dataset = pd.read_csv(os.path.join(sys.path[0],fileName))# use the full path of the file that is in the same directory as the script
-except FileNotFoundError:    dataset = pd.read_csv(fileName)# if fail, only use the name of the file
+try:    
+    dataset = pd.read_csv(os.path.join(sys.path[0],fileName))# use the full path of the file that is in the same directory as the script
+    print ("file obtained from absolute path")
+except FileNotFoundError:    
+    dataset = pd.read_csv(fileName)# if fail, only use the name of the file
+    print ("file obtained from filename")
+
 
 X_Input_data = dataset.iloc[:, 3:-1].values #decide which columns (attributes) will be used in the calculations of the ANN
 #the values from column index 3 to the one before last
