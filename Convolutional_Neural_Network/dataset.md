@@ -1,0 +1,1 @@
+To use to the dataset folder, simply extract <b>dataset.zip</b> in the curren folder.
